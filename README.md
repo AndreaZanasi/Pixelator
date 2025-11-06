@@ -70,10 +70,3 @@ Generated sprites are saved in the `gen_images/` directory with the naming conve
 ```
 <original_filename>_sprite.png
 ```
-
-## Limitations
-
-- Only RGB/RGBA images are supported
-- Very small target resolutions may lose significant detail
-- K-means clustering is sensitive to initialization (results may vary slightly between runs)
-- Processing time increases with image size and number of clusters
