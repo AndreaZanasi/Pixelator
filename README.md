@@ -6,6 +6,19 @@ A Python-based pixel art sprite generator that converts photographic images into
 
 This program transforms high-resolution images into low-resolution pixel art sprites through a combination of image processing techniques and unsupervised machine learning. The tool applies K-means clustering to reduce the color palette of an image while maintaining visual coherence, enabling the creation of retro-style game sprites or artistic pixel art from any input image.
 
+### Example Comparison
+
+<table>
+<tr>
+<td><img src="static_images/landscape.jpg" alt="Original Image" width="400"/></td>
+<td><img src="static_images/landscape_sprite.png" alt="Pixelated Sprite" width="390"/></td>
+</tr>
+<tr>
+<td align="center"><b>Original Image</b></td>
+<td align="center"><b>Generated Sprite</b></td>
+</tr>
+</table>
+
 ## Features
 
 - **Configurable Output Resolution**: Specify custom width and height for generated sprites
@@ -57,18 +70,24 @@ python main.py <image_path> [options]
 
 **Generate a 64x64 sprite with automatic color detection:**
 ```bash
-python main.py input.jpg -W 64 -H 64 -P none
-```
-
-**Create a Game Boy-style sprite:**
-```bash
-python main.py photo.png -W 128 -H 128 -P gameboy
+python main.py image.jpg -W 64 -H 64 -P none
 ```
 
 **Generate a monochrome pixel art sprite:**
 ```bash
-python main.py landscape.jpg -W 256 -H 256 -P monochrome
+python main.py image.jpg -W 256 -H 256 -P monochrome
 ```
+
+<table>
+<tr>
+<td><img src="static_images/log_sprite.png" alt="Log Original" width="150"/></td>
+<td><img src="static_images/log_sprite_monochrome.png" alt="Log Sprite" width="150"/></td>
+</tr>
+<tr>
+<td align="center"><b>Pixelated Log</b></td>
+<td align="center"><b>Monochrome Log</b></td>
+</tr>
+</table>
 
 ## Output
 
