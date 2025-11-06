@@ -51,7 +51,7 @@ python main.py <image_path> [options]
 - `-W`, `--width`: Output width in pixels (default: 128)
 - `-H`, `--height`: Output height in pixels (default: 128)
 - `-P`, `--palette`: Color palette to apply (default: none)
-  - Available palettes: `none`, `gameboy`, `pastel`, `vibrant`, `monochrome`
+  - Available palettes: `none`, `gameboy`, `pastel`, `monochrome`
 
 ### Examples
 
@@ -70,63 +70,6 @@ python main.py photo.png -W 128 -H 128 -P gameboy
 python main.py landscape.jpg -W 256 -H 256 -P monochrome
 ```
 
-## Project Structure
-
-```
-sprite-generator/
-├── main.py                 # Entry point and CLI interface
-├── requirements.txt        # Python dependencies
-├── gen_images/            # Output directory for generated sprites
-└── src/
-    ├── algorithms.py      # K-means and DBSCAN clustering implementations
-    ├── config.py          # Configuration constants and color palettes
-    ├── exporter.py        # Export utilities (PNG, JSON)
-    ├── generator.py       # Sprite generation and palette mapping
-    ├── loader.py          # Image I/O operations
-    └── preprocessor.py    # Image preprocessing and resizing
-```
-
-## Color Palettes
-
-### Game Boy
-Classic Game Boy green palette with 4 shades:
-- `(15, 56, 15)` - Dark green
-- `(48, 98, 48)` - Medium-dark green
-- `(139, 172, 15)` - Medium-light green
-- `(155, 188, 15)` - Light green
-
-### Pastel
-Soft, muted colors with 5 shades:
-- Pink, peach, yellow, mint, light blue
-
-### Vibrant
-High-saturation colors with 6 shades:
-- Red, orange, yellow, green, blue, purple
-
-### Monochrome
-Grayscale palette with 5 shades from black to white
-
-### None
-No predefined palette - automatically extracts up to 16 dominant colors from the source image
-
-## Technical Details
-
-### K-Means Clustering
-
-The custom K-means implementation uses Euclidean distance in RGB color space to cluster pixels. The algorithm:
-- Initializes centroids randomly from input pixels
-- Iteratively refines cluster centers until convergence (max 300 iterations)
-- Terminates when centroid movement falls below tolerance threshold (1e-4)
-
-### Palette Mapping
-
-When a specific palette is applied:
-1. K-means generates cluster centroids from the image
-2. Each centroid is mapped to the nearest palette color using Euclidean distance
-3. All pixels in that cluster are assigned the corresponding palette color
-
-This preserves the spatial distribution of colors while constraining the output to the specified palette.
-
 ## Output
 
 Generated sprites are saved in the `gen_images/` directory with the naming convention:
@@ -140,15 +83,3 @@ Generated sprites are saved in the `gen_images/` directory with the naming conve
 - Very small target resolutions may lose significant detail
 - K-means clustering is sensitive to initialization (results may vary slightly between runs)
 - Processing time increases with image size and number of clusters
-
-## Future Enhancements
-
-- Dithering support for smoother color gradients
-- Custom palette definition via configuration files
-- Batch processing for multiple images
-- Real-time preview interface
-- Additional clustering algorithms (DBSCAN is implemented but not integrated)
-
-## License
-
-This project is provided as-is for educational and artistic purposes.
