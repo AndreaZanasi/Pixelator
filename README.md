@@ -32,12 +32,6 @@ The sprite generation process follows these steps:
 pip install -r requirements.txt
 ```
 
-### Requirements
-
-- Python 3.7+
-- Pillow 10.0.0+
-- NumPy 1.24.0+
-
 ## Usage
 
 ### Basic Command
