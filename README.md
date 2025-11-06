@@ -45,12 +45,6 @@ The sprite generation process follows these steps:
 pip install -r requirements.txt
 ```
 
-### Requirements
-
-- Python 3.7+
-- Pillow 10.0.0+
-- NumPy 1.24.0+
-
 ## Usage
 
 ### Basic Command
@@ -95,10 +89,3 @@ Generated sprites are saved in the `gen_images/` directory with the naming conve
 ```
 <original_filename>_sprite.png
 ```
-
-## Limitations
-
-- Only RGB/RGBA images are supported
-- Very small target resolutions may lose significant detail
-- K-means clustering is sensitive to initialization (results may vary slightly between runs)
-- Processing time increases with image size and number of clusters
